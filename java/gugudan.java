@@ -13,7 +13,7 @@ public class gugudan {
         System.out.print(0);
       }else{
         for (int j = 1; j <= 9; j++){
-          System.out.println(num + " * " + j + "=" + num * j);
+          System.out.println(num + " * " + j + " = " + num * j);
         }
       }
     }
