@@ -20,14 +20,33 @@ app.get('/', (req, res) => {
 			res.json({'count':0})
 		}else{
 			db = database.db('test')
-			db.collection('user').find({}).toArray(function(err, result){
+			db.collection('user').find({},{name:1}).toArray(function(err, result){
 				if(err) throw err
 				console.log('result : ')
 				console.log(result)
 				res.json(JSON.stringify(result))
-			})
+
+				res.writeHead(200);
+				var template = `
+					<table border="1" margin: auto; text-align: center;>
+					<tr>
+						<th> 유저 번호 </th>
+						<th> 유저 명 </th>
+					</tr>
+				`;
+
+				result.forEach((item) => {
+					template += `
+					<tr>
+						<th>${item.name}</th>
+					</tr>`
+				});
+				template += `</table>`;
+			res.end(template);
+
+			});
 		}
-	})
+	});
 });
 
 module.exports = app;
