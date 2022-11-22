@@ -17,6 +17,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://13.209.238.237:27017/test');
+
 //routes setup
 var mainView = require('./routes/main.js');
 app.use('/', mainView);

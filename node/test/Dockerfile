@@ -9,8 +9,8 @@ COPY package*.json ./
 RUN npm install
 
 # Step 4
-ADD 
-COPY app.js ./
+ADD https://github.com/minj-L/anew/blob/main/node/test/app.js /app.js
+#COPY app.js ./
 
 # Step 5
 EXPOSE 3000

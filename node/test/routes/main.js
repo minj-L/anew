@@ -8,7 +8,7 @@ app.set('port', process.env.Port || 3000)
 app.use(morgan('dev'))
 
 var db;
-var databaseUrl="mongodb://13.209.238.237:27017/test"
+var databaseUrl="mongodb+srv://admin:1234@cluster0.uzxwi96.mongodb.net/?retryWrites=true&w=majority"
 
 //app.get('/', (req, res) => {
 //	res.send("Web Server Started~!!")
@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 			res.json({'count':0})
 		}else{
 			db = database.db('test')
-			db.collection('things').find({}).toArray(function(err, result){
+			db.collection('user').find({}).toArray(function(err, result){
 				if(err) throw err
 				console.log('result : ')
 				console.log(result)
