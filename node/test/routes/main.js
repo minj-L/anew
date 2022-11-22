@@ -14,17 +14,17 @@ var databaseUrl="mongodb+srv://admin:1234@cluster0.uzxwi96.mongodb.net/?retryWri
 //	res.send("Web Server Started~!!")
 //})
 
-app.get('/', (req, res) => {
+app.get('/users', (req, res) => {
 	mongoClient.connect(databaseUrl, function(err, database){
 		if(err != null){
-			res.json({'count':0})
+			return res.json({'count':0})
 		}else{
 			db = database.db('test')
 			db.collection('user').find({},{name:1}).toArray(function(err, result){
 				if(err) throw err
 				console.log('result : ')
 				console.log(result)
-				res.json(JSON.stringify(result))
+				// res.json(JSON.stringify(result))
 
 				res.writeHead(200);
 				var template = `
@@ -42,7 +42,7 @@ app.get('/', (req, res) => {
 					</tr>`
 				});
 				template += `</table>`;
-			res.end(template);
+			return res.end(template);
 
 			});
 		}

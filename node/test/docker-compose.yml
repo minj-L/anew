@@ -1,6 +1,6 @@
 version: '3.3'
 services:
- webserver:
-  build:
-   context: data
-   dockerfile : Dockerfile
+ node:
+  build: .
+   ports:
+    - 3000:3000
