@@ -6,6 +6,8 @@ exec:
 	docker exec -it nodejs /bin/bash
 start:
 	docker start nodejs
+attach:
+	docker attach nodejs
 logs:
 	docker logs nodejs
 ps:

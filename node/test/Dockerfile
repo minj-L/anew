@@ -5,11 +5,12 @@ FROM node:16
 WORKDIR /usr/src/app
   
 # Step 3
-COPY package*.json ./
+RUN git clone https://github.com/minj-L/anew/tree/main/node/test
+COPY test
 RUN npm install
 
 # Step 4
-ADD https://github.com/minj-L/anew/blob/main/node/test ./ 
+#ADD https://github.com/minj-L/anew/blob/main/node/test ./ 
 #COPY app.js ./
 
 # Step 5

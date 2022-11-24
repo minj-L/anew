@@ -10,9 +10,9 @@ app.use(morgan('dev'))
 var db;
 var databaseUrl="mongodb+srv://admin:1234@cluster0.uzxwi96.mongodb.net/?retryWrites=true&w=majority"
 
-//app.get('/', (req, res) => {
-//	res.send("Web Server Started~!!")
-//})
+app.get('/', (req, res) => {
+	res.sendFile(__dirname + "/index.html");
+})
 
 app.get('/users', (req, res) => {
 	mongoClient.connect(databaseUrl, function(err, database){
@@ -30,7 +30,6 @@ app.get('/users', (req, res) => {
 				var template = `
 					<table border="1" margin: auto; text-align: center;>
 					<tr>
-						<th> 유저 번호 </th>
 						<th> 유저 명 </th>
 					</tr>
 				`;
